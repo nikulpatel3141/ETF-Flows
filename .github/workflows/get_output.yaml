@@ -25,4 +25,9 @@ jobs:
 
     - name: 'Copy'
       run: |-
-        gsutil ls "${{ secrets.OUTPUT_URI }}"
+        gsutil cp "${{ secrets.OUTPUT_URI }}" .
+
+    - uses: mikeal/publish-to-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
