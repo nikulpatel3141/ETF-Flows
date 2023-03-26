@@ -20,5 +20,5 @@ jobs:
         workload_identity_provider:  ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
         service_account: ${{ secrets.SERVICE_ACCOUNT }}
 
-      name: 'copy'
+    - name: 'copy'
       run: 'gsutil ls ${{ secrets.OUTPUT_URI }}'
