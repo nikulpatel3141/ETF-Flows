@@ -21,5 +21,9 @@ jobs:
         workload_identity_provider:  ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
         service_account: ${{ secrets.SERVICE_ACCOUNT }}
 
-    - name: 'copy'
-      run: 'gsutil ls ${{ secrets.OUTPUT_URI }}'
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v1'
+
+    - name: 'Copy'
+      run: |-
+        gsutil ls "${{ secrets.OUTPUT_URI }}"
